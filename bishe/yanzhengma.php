@@ -1,0 +1,35 @@
+<?php
+session_start();
+for($i=0; $i<4; $i++){
+
+    $rand.= dechex(rand(1,15));
+
+}
+
+$_SESSION['check']=$rand;
+
+//echo $_SESSION[check_pic];
+
+// ÉèÖÃÍ¼Æ¬´óÐ¡
+
+$im = imagecreatetruecolor(100,30);
+
+// ÉèÖÃÑÕÉ«
+
+$bg=imagecolorallocate($im,0,0,0);
+
+$te=imagecolorallocate($im,255,255,255);
+
+// °Ñ×Ö·û´®Ð´ÔÚÍ¼Ïñ×óÉÏ½Ç
+
+imagestring($im,rand(5,6),rand(25,30),5,$rand,$te);
+
+// Êä³öÍ¼Ïñ
+ob_clean();
+header("Content-type:image/jpeg");
+
+imagejpeg($im);
+
+ 
+
+?>
